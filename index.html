@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- Mudando o idioma para inglês -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown</title>
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet"> <!-- Adicionando a fonte Play -->
+    <style>
+        body {
+            font-family: 'Play', sans-serif; /* Usando a fonte Play */
+            text-align: center;
+            background-color: #FF0000; /* Vermelho forte */
+            color: black; /* Cor do texto em preto */
+            padding: 50px;
+            margin: 0;
+        }
+        h1 {
+            font-weight: 700; /* Usando Play Bold para o título */
+            font-size: 3em; /* Tamanho do título */
+        }
+        #countdown {
+            font-weight: 400; /* Usando Play Regular para a contagem */
+            font-size: 2.5em; /* Tamanho da fonte da contagem */
+            margin: 20px 0;
+        }
+        #enigmatic-message {
+            font-weight: 400; /* Usando Play Regular para a frase enigmática */
+            font-size: 2em; /* Tamanho da frase enigmática */
+            color: black; /* Cor do texto em preto */
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Countdown X_X</h1> <!-- Alterando o título -->
+    <div id="countdown"></div>
+    <div id="enigmatic-message">"While the stars fade away."</div> <!-- Frase em inglês -->
+
+    <script>
+        const countDownDate = new Date("Dec 12, 2024 19:12:00").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = days + " days " + hours + " hours "
+                + minutes + " minutes " + seconds + " seconds ";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "The countdown has ended!";
+                document.getElementById("enigmatic-message").innerHTML = "The video has been released!";
+            }
+        }, 1000);
+    </script>
+</body>
+  </html>
